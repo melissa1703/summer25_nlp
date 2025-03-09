@@ -34,7 +34,7 @@ From memory, the most important are:
 The main program has been written in [find_suggestions.py], and by default runs
 a one-layered search using GloVe as the search method and ModernBERT for scoring.
 
-To select further options for searches please enter the command in the following format:
+To select further options for searches please enter the command in the following format: <br>
 python3 find_suggestions.py <search_1> <search_2> <sort_method>
 
 The main methods tested over the summer were:
