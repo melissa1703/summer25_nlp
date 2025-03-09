@@ -1,7 +1,9 @@
 import csv
 import sys
 
-def get_samples(samples : str = "./datafiles/samples.csv") -> list :
+FILEPATH : str = "./datafiles/all_samples.csv"
+
+def get_samples(samples : str = FILEPATH) -> list :
     """
     Parses all sample sentences and returns them as a list.
     """
@@ -15,7 +17,7 @@ def get_samples(samples : str = "./datafiles/samples.csv") -> list :
 
     return sentences
 
-def add_sample_sentences(new : str, to : str = "./datafiles/samples.csv"):
+def add_sample_sentences(new : str, to : str = FILEPATH):
     """
     Given a filename, writes the contents of the files to samples.csv to be used
     with algorithm.

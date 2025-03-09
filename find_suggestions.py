@@ -8,6 +8,10 @@ import csv
 import sys
 import datetime
 
+# FILEPATH VARIABLES FOR EASE:
+GLOVE_VECTORS : str = "./data_files/commoncrawl.840B.300d.txt"
+SAMPLES : str = "./datafiles/all_samples.csv"
+
 def wordnet_only(ngsl : list[str], sentences : list[str]):
     print(f"> Suggestions will be found using WordNet only")
 
@@ -243,15 +247,10 @@ def get_samples(sample_sentences : str) -> list :
 # python3 find_suggestions.py [glove/wordnet/bert] [glove/wordnet/bert] [glove/bert]
 # specify none for search_2 if you want to skip it !!!
 if __name__ == "__main__":
-    # Filepaths for test + glove data:
-    samples = "./datafiles/all_samples.csv"
-    # samples = "./datafiles/extract.csv"
-    data = "./data_files/commoncrawl.840B.300d.txt"
-
     # Load in relevant items:
-    glove_data : tuple = glove.get_faiss_vectors(data)
+    glove_data : tuple = glove.get_faiss_vectors(GLOVE_VECTORS)
     ngsl : list[str] = filters.get_freq().keys()
-    sentences = get_samples(samples)
+    sentences = get_samples(SAMPLES)
     timestamp = datetime.datetime.now()    # Timestamp for recording results
 
 

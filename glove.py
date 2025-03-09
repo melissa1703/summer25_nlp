@@ -6,6 +6,8 @@ from scipy import spatial
 import filters
 from word import Word
 
+GLOVE_VECTORS : str = "./data_files/commoncrawl.840B.300d.txt"
+
 def get_depth(filepath : str) -> int:
     """
     Returns the expected depth of vectors from given file based on filename
@@ -47,7 +49,7 @@ def validate_data(filepath : str = "./data_files/commoncrawl.840B.300d.txt") -> 
 
     print(f"TOTAL WORDS : {count}")
 
-def get_faiss_vectors(filepath : str = "./data_files/commoncrawl.840B.300d.txt") -> tuple[dict]:
+def get_faiss_vectors(filepath : str = GLOVE_VECTORS) -> tuple[dict]:
     """
     Given filepath of GloVe vector file, parses and stores vectors.
 
@@ -218,10 +220,5 @@ def search(glove_data : tuple) :
 
 
 if __name__ == "__main__":
-    # data : str = "./data_files/wikipedia.6B.300d.txt"
-    # data : str = "./data_files/twitter.27B.200d.txt"
-    # data : str = "./data_files/commoncrawl.42B.300d.txt"
-    data : str = "./data_files/commoncrawl.840B.300d.txt"
-
-    glove_data : tuple = get_faiss_vectors(data)
+    glove_data : tuple = get_faiss_vectors(GLOVE_VECTORS)
     search(glove_data)

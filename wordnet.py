@@ -1,8 +1,8 @@
 from word import Word
 import filters
-from nltk.corpus import wordnet
-from nltk.corpus import verbnet
+
 import nltk
+from nltk.corpus import wordnet
 
 nltk.download('wordnet')
 

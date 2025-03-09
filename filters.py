@@ -6,6 +6,9 @@ from syllables import estimate
 from wordnet import get_word_tags
 from word import Word
 
+# SET FILEPATH FOR FREQUENCY PATH HERE:
+FREQ_FILE : str = "./datafiles/NGSL_1.2_stats.csv"
+
 # Load in Spacy NLP For global access:
 nlp = spacy.load("en_core_web_trf")
 
@@ -34,7 +37,7 @@ def bert_format(sentence : str) -> str:
     formatted = " ".join(parts)
     return formatted
 
-def get_freq(ngsl : str = "./datafiles/NGSL_1.2_stats.csv") -> dict:
+def get_freq(ngsl : str = FREQ_FILE) -> dict:
     print("> Processing NGSL")
     frequency : dict = {}
 
@@ -186,24 +189,3 @@ def get_words(sentence : str) -> list[Word]:
         words.append(Word(word, type))
 
     return words
-
-
-def test_tokens():
-    sentences = ["The girl had an abrasion on her knee.",
-                 "This is a test sentence.",
-                 "Snoopy is cute and Snoopy is life!!!"]
-    
-    for sentence in sentences:
-        tokens = get_tokens(sentence)
-        print(f"SENTENCE: {sentence}")
-        print(f"TOKENS : {tokens}")
-
-def test_pos_find():
-    verbs = ["confer", "test", "drink", "trip", "bestow"]
-    
-    for verb in verbs:
-        same_pos("VERB", verb)
-        
-        
-if __name__ == "__main__":
-    test_tokens()
