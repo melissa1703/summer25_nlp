@@ -17,7 +17,7 @@ Some other useful resources:
 - ModernBERT : https://huggingface.co/docs/transformers/main/quicktour 
 - Spacy : https://spacy.io/models
 
-Filepaths for all data has been assigned to global variables at the top of relevant
+Filepaths for all data have been assigned to global variables at the top of relevant
 files (glove.py, filter.py, find_suggestions.py) for ease of updating.
 
 Additionally, please make sure all the relevant Python packages have been installed.
